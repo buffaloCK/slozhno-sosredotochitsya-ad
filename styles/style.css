@@ -1,6 +1,9 @@
 .page {
   background-color: var(--page-background-color, #000028);
-  background-image: var(--page-background-image, url("../images/cover-image.png"));
+  background-image: var(
+    --page-background-image,
+    url("../images/cover-image.png")
+  );
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -97,6 +100,7 @@
   padding: 2px 12px;
   color: var(--secondary-color, #ff0070);
   line-height: 18px;
+  text-transform: lowercase;
   background: transparent;
   cursor: pointer;
 }
@@ -166,11 +170,13 @@
   border-inline-end: 1px solid var(--secondary-color, #ff0070);
   border-block-start: 1px solid var(--secondary-color, #ff0070);
   inset-inline-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  inset-block-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
 }
 
 .zone::after {
   border-inline-start: 1px solid var(--secondary-color, #ff0070);
   border-block-end: 1px solid var(--secondary-color, #ff0070);
+  inset-inline-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
   inset-block-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
 }
 
@@ -195,6 +201,7 @@
   display: inline-block;
   border-radius: 50%;
   outline: 2px solid var(--accent-color, #ff0070);
+  outline-offset: 2px;
   background: var(--accent-color, #ff0070);
   inline-size: 9px;
   block-size: 9px;
@@ -208,6 +215,10 @@
   .rec {
     inset-inline-end: 28px;
     inset-block-start: 20px;
+  }
+
+  .main-title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
   .block {
@@ -232,8 +243,8 @@
     gap: 20px;
   }
 
-  .gallery-item:first-child,
-  .gallery-item:last-child {
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-last-child(1) {
     grid-column-start: span 2;
   }
 
@@ -269,9 +280,7 @@
 
   .theme-menu {
     justify-self: center;
-    margin-inline-start: 20px;
-    margin-block-start: 0;
-    margin-block-end: 215px;
+    margin: 0 0 215px 20px;
   }
 
   .theme-list {
